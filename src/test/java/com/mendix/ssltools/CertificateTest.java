@@ -10,32 +10,32 @@ import static org.junit.Assert.assertTrue;
 
 public class CertificateTest extends BaseTest {
     @Test
-    public void parseValidTLSCertificate() throws CertificateException, IOException {
-        Certificate certificate = new Certificate(validTLSCertificate);
+    public void parseTLSCertificate() throws CertificateException, IOException {
+        Certificate certificate = new Certificate(TLSCertificate);
         X509Certificate x509 = certificate.getX509Certificate();
     }
 
     @Test(expected = CertificateException.class)
-    public void parseinValidTLSCertificate() throws CertificateException, IOException {
+    public void parseInvalidTLSCertificate() throws CertificateException, IOException {
         Certificate certificate = new Certificate(invalidTLSCertificate);
         X509Certificate x509 = certificate.getX509Certificate();
     }
 
     @Test
     public void certificatePemToDerToPem() throws CertificateException, IOException {
-        Certificate certificateFromPem = new Certificate(validTLSCertificate);
+        Certificate certificateFromPem = new Certificate(TLSCertificate);
         byte [] der = certificateFromPem.getCertificateInDerFormat();
 
         Certificate certificateFromDer = new Certificate(der);
         String pem = certificateFromDer.getCertificateInPemFormat();
 
-        assertTrue(pem.equals(validTLSCertificate));
+        assertTrue(pem.equals(TLSCertificate));
     }
 
     @Test
     public void testKeyMatchBetweenCertificateAndPrivateKey() throws CertificateException, IOException {
-        Certificate certificate = new Certificate(validTLSCertificate);
-        PrivateKey privateKey = new PrivateKey(validPrivateKey);
+        Certificate certificate = new Certificate(TLSCertificate);
+        PrivateKey privateKey = new PrivateKey(PrivateKey);
         assertTrue(privateKey.matchCertificate(certificate));
     }
 }
