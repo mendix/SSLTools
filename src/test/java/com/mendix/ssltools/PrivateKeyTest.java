@@ -14,8 +14,8 @@ import static org.junit.Assert.assertTrue;
 
 public class PrivateKeyTest extends BaseTest {
     @Test
-    public void parseValidPrivateKey() throws IOException {
-        PrivateKey privateKey = new PrivateKey(validPrivateKey);
+    public void parsePrivateKey() throws IOException {
+        PrivateKey privateKey = new PrivateKey(PrivateKey);
         RSAPrivateKey rsaPrivateKey = (RSAPrivateKey) privateKey.getPrivateKey();
     }
 
@@ -27,7 +27,7 @@ public class PrivateKeyTest extends BaseTest {
 
     @Test
     public void privateKeyPemToDerToPem() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-        PrivateKey privateKeyFromPem = new PrivateKey(validPrivateKey);
+        PrivateKey privateKeyFromPem = new PrivateKey(PrivateKey);
         byte [] der = privateKeyFromPem.getPrivateKeyInDerFormat();
         BigInteger modulusFromPem = privateKeyFromPem.getModulus();
 
@@ -38,8 +38,8 @@ public class PrivateKeyTest extends BaseTest {
     }
 
     @Test
-    public void getValidPublicKeyFromPrivateKey() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
-        PrivateKey privateKey = new PrivateKey(validPrivateKey);
+    public void getPublicKeyFromPrivateKey() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
+        PrivateKey privateKey = new PrivateKey(PrivateKey);
         PublicKey publicKey = privateKey.getPublicKeyFromPrivateKey();
     }
 }

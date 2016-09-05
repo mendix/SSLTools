@@ -2,7 +2,7 @@ package com.mendix.ssltools;
 
 public class BaseTest {
 
-    public static String validTLSCertificate = "-----BEGIN CERTIFICATE-----\n" +
+    public static String TLSCertificate = "-----BEGIN CERTIFICATE-----\n" +
             "MIIGIDCCBQigAwIBAgISAwWmYXsDbTUZPcOyNG/I7roNMA0GCSqGSIb3DQEBCwUA\n" +
             "MEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD\n" +
             "ExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xNjA1MjMxMjQ2MDBaFw0x\n" +
@@ -38,7 +38,7 @@ public class BaseTest {
             "xZtRWxBG6lE+VAkbWdrt5FLPIO1pRbHP7ptJmgRvJ25pGZva\n" +
             "-----END CERTIFICATE-----";
 
-    public static String validPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
+    public static String PrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
             "MIIJKQIBAAKCAgEAwFxbnN4qpDx2BzftzmjUrlbIX88vsGGRXWc0W66dnCwWBAa1\n" +
             "TQJgXDEpcFJAdCKdIBM7fGLzO3sVV2nBbqVL/aMgohUQIQZhpznHTgKNcwAPs4PH\n" +
             "eE2i3KsPKZlEy62l5Tb4wPPxIgLMRb3DWHB2z2iZeHP0RHH+js8wEzhYZg7V1as0\n" +
@@ -90,7 +90,7 @@ public class BaseTest {
             "jZzCQ8K/4Z3Bc0a4+OlPolvH3OBLqAUmice9YGKe4Uhw5S2kW5Ltw/bkCNVe\n" +
             "-----END RSA PRIVATE KEY-----";
 
-    public static String validTLSCertificateChain = "-----BEGIN CERTIFICATE-----\n" +
+    public static String TLSCertificateChain = "-----BEGIN CERTIFICATE-----\n" +
             "MIIDSjCCAjKgAwIBAgIQRK+wgNajJ7qJMDmGLvhAazANBgkqhkiG9w0BAQUFADA/\n" +
             "MSQwIgYDVQQKExtEaWdpdGFsIFNpZ25hdHVyZSBUcnVzdCBDby4xFzAVBgNVBAMT\n" +
             "DkRTVCBSb290IENBIFgzMB4XDTAwMDkzMDIxMTIxOVoXDTIxMDkzMDE0MDExNVow\n" +
@@ -138,7 +138,7 @@ public class BaseTest {
             "KOqkqm57TH2H3eDJAkSnh6/DNFu0Qg==\n" +
             "-----END CERTIFICATE-----";
 
-    public static String wronglyOrderedTLSCertificateChain = "-----BEGIN CERTIFICATE-----\n" +
+    public static String unorderedTLSCertificateChain = "-----BEGIN CERTIFICATE-----\n" +
             "MIIEqDCCA5CgAwIBAgIRAJgT9HUT5XULQ+dDHpceRL0wDQYJKoZIhvcNAQELBQAw\n" +
             "PzEkMCIGA1UEChMbRGlnaXRhbCBTaWduYXR1cmUgVHJ1c3QgQ28uMRcwFQYDVQQD\n" +
             "Ew5EU1QgUm9vdCBDQSBYMzAeFw0xNTEwMTkyMjMzMzZaFw0yMDEwMTkyMjMzMzZa\n" +
@@ -257,7 +257,7 @@ public class BaseTest {
             "jZzCQ8K/4Z3Bc0a4+OlPolvH3OBLqAUmice9YGKe4Uhw5S2kW5Ltw/bkCNVe\n" +
             "-----END RSA PRIVATE KEY-----";
 
-    public static String validCertificateRequest = "-----BEGIN CERTIFICATE REQUEST-----\n" +
+    public static String CertificateRequest = "-----BEGIN CERTIFICATE REQUEST-----\n" +
             "MIIEwjCCAqoCAQAwfTELMAkGA1UEBhMCTkwxFTATBgNVBAgTDFp1aWQtSG9sbGFu\n" +
             "ZDESMBAGA1UEBxMJUm90dGVyZGFtMQ8wDQYDVQQKEwZNZW5kaXgxCTAHBgNVBAsT\n" +
             "ADEnMCUGA1UEAxMeaGllcm5pZXRwb2VwZW4udGVzdC5tZW5kaXguY29tMIICIjAN\n" +
