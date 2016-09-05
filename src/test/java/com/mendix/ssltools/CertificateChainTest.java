@@ -22,6 +22,11 @@ public class CertificateChainTest extends BaseTest {
     }
 
     @Test
+    public void parseTLSCertificateChainWithTrailingNewline() throws CertificateException, IOException, InvalidNameException {
+        CertificateChain certificateChain = new CertificateChain(TLSCertificateChainWithTrailingNewline);
+    }
+
+    @Test
     public void certificateMatchesCertificateChain() throws CertificateException, IOException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException, InvalidNameException {
         Certificate certificate = new Certificate(TLSCertificate);
         CertificateChain certificateChain = new CertificateChain(TLSCertificateChain);

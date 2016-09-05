@@ -186,6 +186,8 @@ public class BaseTest {
             "Ob8VZRzI9neWagqNdwvYkQsEjgfbKbYK7p2CNTUQ\n" +
             "-----END CERTIFICATE-----";
 
+    public static String TLSCertificateChainWithTrailingNewline = TLSCertificateChain + "\n";
+
     public static String invalidTLSCertificate = "-----BEGIN CERTIFICATE-----\n" +
             "MIIGIDCCBQigAwIBAgISAwWmYXsDbTUZPcOyNG/I7roNMA0GCSqGSIb3DQEBCwUA\n" +
             "MEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD\n" +

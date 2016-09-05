@@ -17,7 +17,7 @@ public class CertificateChain {
     private List<Certificate> certificateList;
 
     public CertificateChain(String pemChain) throws CertificateException, IOException, InvalidNameException {
-        this.certificateList = this.parseCertificateChain(pemChain);
+        this.certificateList = this.parseCertificateChain(pemChain.trim());
         this.certificateList = orderCertificateChain(this.certificateList);
     }
 
