@@ -58,13 +58,7 @@ public class Certificate {
 
     public String getCommonName() throws InvalidNameException {
         LdapName DN = new LdapName(getX509Certificate().getSubjectX500Principal().getName());
-        String commonname = null;
-        for (Rdn rdn : DN.getRdns()) {
-            if (rdn.toString().startsWith("CN=")) {
-                commonname = rdn.toString().split("CN=")[1];
-            }
-        }
-        return commonname;
+        return getFromDN(DN, "CN");
     }
 
     public String getSubjectAlternativeName() throws CertificateParsingException {
@@ -87,57 +81,37 @@ public class Certificate {
 
     public String getOrganization() throws InvalidNameException {
         LdapName DN = new LdapName(getX509Certificate().getSubjectX500Principal().getName());
-        String organization = null;
-        for (Rdn rdn : DN.getRdns()) {
-            if (rdn.toString().startsWith("O=")) {
-                organization = rdn.toString().split("O=")[1];
-            }
-        }
-        return organization;
+        return getFromDN(DN, "O");
     }
 
     public String getOrganizationalUnit() throws InvalidNameException {
         LdapName DN = new LdapName(getX509Certificate().getSubjectX500Principal().getName());
-        String ou = null;
-        for (Rdn rdn : DN.getRdns()) {
-            if (rdn.toString().startsWith("OU=")) {
-                ou = rdn.toString().split("OU=")[1];
-            }
-        }
-        return ou;
+        return getFromDN(DN, "OU");
     }
 
     public String getIssuerCommonName() throws InvalidNameException {
         LdapName issuerDN = new LdapName(getX509Certificate().getIssuerDN().getName());
-        String issuerCommonName = null;
-        for (Rdn rdn : issuerDN.getRdns()) {
-            if (rdn.toString().startsWith("CN=")) {
-                issuerCommonName = rdn.toString().split("CN=")[1];
-            }
-        }
-        return issuerCommonName;
+        return getFromDN(issuerDN, "CN");
     }
 
     public String getIssuerOrganization() throws InvalidNameException {
         LdapName issuerDN = new LdapName(getX509Certificate().getIssuerDN().getName());
-        String issuerOrganization = null;
-        for (Rdn rdn : issuerDN.getRdns()) {
-            if (rdn.toString().startsWith("O=")) {
-                issuerOrganization = rdn.toString().split("O=")[1];
-            }
-        }
-        return issuerOrganization;
+        return getFromDN(issuerDN, "O");
     }
 
     public String getIssuerOrganizationalUnit() throws InvalidNameException {
         LdapName issuerDN = new LdapName(getX509Certificate().getIssuerDN().getName());
-        String issuerOrganizationalUnit = null;
-        for (Rdn rdn : issuerDN.getRdns()) {
-            if (rdn.toString().startsWith("OU=")) {
-                issuerOrganizationalUnit = rdn.toString().split("OU=")[1];
+        return getFromDN(issuerDN, "OU");
+    }
+
+    private String getFromDN(LdapName DN, String name) throws InvalidNameException {
+        String result = null;
+        for (Rdn rdn : DN.getRdns()) {
+            if (rdn.toString().startsWith(name + "=") && !rdn.toString().equals(name + "=")) {
+                result = rdn.toString().split(name + "=")[1];
             }
         }
-        return issuerOrganizationalUnit;
+        return result;
     }
 
     public Date getNotBefore() {
