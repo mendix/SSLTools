@@ -1,6 +1,6 @@
 package com.mendix.ssltools;
 
-import sun.security.pkcs.PKCS10;
+import sun.security.pkcs10.PKCS10;
 import sun.security.x509.X500Name;
 
 import java.io.IOException;
