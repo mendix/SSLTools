@@ -1,7 +1,7 @@
 package com.mendix.ssltools;
 
 import org.junit.Test;
-import sun.security.pkcs.PKCS10;
+import sun.security.pkcs10.PKCS10;
 
 import java.io.IOException;
 import java.security.InvalidKeyException;

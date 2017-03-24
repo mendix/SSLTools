@@ -14,7 +14,7 @@ Certificate Requests and Certificate Chains in Java.
 
 ## Requirements
 
-* Oracle Java 7 (because of `sun.security.pkcs.PKCS10` dependency)
+* Oracle Java 8 (because of `sun.security.pkcs10.PKCS10` dependency)
 
 ## License
 
