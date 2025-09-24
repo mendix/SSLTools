@@ -1,8 +1,8 @@
 package com.mendix.ssltools;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.Base64;
 import java.util.Scanner;
 
 public class Util {
@@ -18,7 +18,7 @@ public class Util {
                 continue;
             }
             if (line.contains(endMarker)) {
-                return DatatypeConverter.parseBase64Binary(buf.toString());
+                return Base64.getDecoder().decode(buf.toString());
             }
             buf.append(line.trim());
         }
@@ -27,14 +27,14 @@ public class Util {
     }
 
     public String derToPem(byte[] der, String beginMarker, String endMarker) {
-        String base64 = DatatypeConverter.printBase64Binary(der);
+        String base64 = Base64.getEncoder().encodeToString(der);
         String[] lines = base64.split("(?<=\\G.{64})");
-        String result = beginMarker + "\n";
+        StringBuilder result = new StringBuilder(beginMarker).append("\n");
         for (String line : lines) {
-            result += line + "\n";
+            result.append(line).append("\n");
         }
-        result += endMarker;
-        return result;
+        result.append(endMarker);
+        return result.toString();
     }
 
     public String toHex(byte[] bytes) {

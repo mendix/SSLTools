@@ -16,7 +16,7 @@
  ****************************************************************************/
 package com.mendix.ssltools;
 
-import javax.xml.bind.DatatypeConverter;
+import java.util.Base64;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -125,7 +125,7 @@ class PrivateKeyReader {
                 continue;
             }
             if (line.contains(endMarker)) {
-                return DatatypeConverter.parseBase64Binary(buf.toString());
+                return Base64.getDecoder().decode(buf.toString());
             }
             buf.append(line.trim());
         }
